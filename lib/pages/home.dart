@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import'package:carousel_pro/carousel_pro.dart';
-import 'package:ecommerce_tut/components/horizontal_listview.dart';
+import 'packages:BOOKSHOP/components/horizontal_listview.dart';
 import 'package:ecommerce_tut/components/products.dart';
 
 class Homepage extends StatefulWidget{
