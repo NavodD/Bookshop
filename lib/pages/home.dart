@@ -1,158 +1,174 @@
 import 'package:flutter/material.dart';
 import'package:carousel_pro/carousel_pro.dart';
-import 'packages:BOOKSHOP/components/horizontal_listview.dart';
-import 'package:ecommerce_tut/components/products.dart';
+import 'package:register/components/horizontal_listview.dart';
 
-class Homepage extends StatefulWidget{
+class HomePage extends StatefulWidget {
   @override
-  _HomepageState createState() => _HomepageState();
+  _HomePageState createState() => _HomePageState();
 }
 
-class _HomepageState extends State<HomePage>{
+class _HomePageState extends State<HomePage> {
   @override
-  Widget build(BuildContext context){
-    Widget image_carousel= new Container(
-        height: 200.0,
-        child: new Carousel(
-          boxFit: BoxFit.cover,
-          images:[
-            AssetImage(''),
-            AssetImage(''),
-            AssetImage(''),
-            AssetImage(''),
-            AssetImage(''),
-            AssetImage(''),
-          ]
-          autoplay:false,
-          animationCurve:Curves.fastOutSlowIn,
-          animationDuration: Duration(milliseconds:1000),
-          dotSize:4.0,
-          indicatorBgPadding:2.0,
-        )
-    )
+  Widget build(BuildContext context) {
+
+    Widget image_carousel = new Container(
+      height: 200.0,
+      child: Carousel(
+        boxFit: BoxFit.cover,
+        images: [
+          AssetImage(''),
+          AssetImage(''),
+          AssetImage(''),
+          AssetImage(''),
+          AssetImage(''),
+          AssetImage(''),
+        ],
+        autoplay: false,
+      //  animationCurve: Curves.fastOutSlowIn,
+        //animationDuration: Duration(milliseconds: 1000),
+        dotSize: 4.0,
+        indicatorBgPadding: 2.0,
+        dotBgColor: Colors.transparent,
+      ),
+    );
     return Scaffold(
-        appBar:new AppBar(
-            elevation:0.1,
-            backgroundColor: Colors.red.shade900,
-            title:text('Nadeesha bookshop'),
-            actions:<Widget>[
-        new IconButton(
-        icon:Icon(
-            Icons.search,
-            color:Colors.white
-        )
-        onPressed:(){},
-    )
-    new IconButton(
-    icon:Icon(
-    Icons.shopping_cart,
-    color:Colors.white,
-    )
-    onPressed:(){}
-    )
-    ]
-    )
-    drawer: new Drawer(
-    child:new ListView(
-    children:<Widget>[
-    header
-    new UserAccountsDrawerHeader(
-    accountName: Text('santos Enoque'),
-    accountEmail: Text('santosenoque.s@gmail.com'),
-    currentAccountPicture: GestureDetector(
-    child:new CircleAvatar(
-    backgroundColor: Colors.grey,
-    child: Icon(Icons.person,color:Colors.white)
-    )
-    )
-    decoration: new BoxDecoration(
-    color:Colors.red.shade900
-    )
-    )
+      appBar: AppBar(
+          elevation: 0.0,
+          title: Text('ShopApp'),
+          backgroundColor: Colors.red,
+          actions: <Widget>[
+            IconButton(
+                icon: Icon(Icons.search),
+                color: Colors.white,
+                onPressed: () {}),
+            IconButton(
+                icon: Icon(Icons.shopping_cart),
+                color: Colors.white,
+                onPressed: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>Cart()));
+                }),
+          ],
+        ),
+
+        drawer: Drawer(
+          child: ListView(
+            children: <Widget>[
+              //header
+              UserAccountsDrawerHeader(
+                accountName: Text('Chamaka Athukorala'),
+                accountEmail: Text('chamakamedasa@gmail.com'),
+                currentAccountPicture: GestureDetector(
+                  child: CircleAvatar(
+                    backgroundColor: Colors.grey,
+                    child: Icon(
+                      Icons.person,
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
+                decoration: BoxDecoration(color: Colors.red),
+              ),
+              //body
+              InkWell(
+                onTap: () {},
+                child: ListTile(
+                  title: Text('Home Page'),
+                  leading: Icon(
+                    Icons.home,
+                    color: Colors.red,
+                  ),
+                ),
+              ),
+
+              InkWell(
+                onTap: () {},
+                child: ListTile(
+                  title: Text('My Account'),
+                  leading: Icon(
+                    Icons.person,
+                    color: Colors.red,
+                  ),
+                ),
+              ),
+
+              InkWell(
+                onTap: () {},
+                child: ListTile(
+                  title: Text('My Orders'),
+                  leading: Icon(
+                    Icons.shopping_basket,
+                    color: Colors.red,
+                  ),
+                ),
+              ),
+
+              InkWell(
+                onTap: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>Cart()));
+                },
+                child: ListTile(
+                  title: Text('Shopping Cart'),
+                  leading: Icon(
+                    Icons.shopping_cart,
+                    color: Colors.red,
+                  ),
+                ),
+              ),
+
+              InkWell(
+                onTap: () {},
+                child: ListTile(
+                  title: Text('Favorites'),
+                  leading: Icon(
+                    Icons.favorite,
+                    color: Colors.red,
+                  ),
+                ),
+              ),
+              Divider(
+                color: Colors.grey,
+              ),
+              InkWell(
+                onTap: () {},
+                child: ListTile(
+                  title: Text('Settings'),
+                  leading: Icon(
+                    Icons.settings,
+                    color: Colors.blue,
+                  ),
+                ),
+              ),
+
+              InkWell(
+                onTap: () {},
+                child: ListTile(
+                  title: Text('About'),
+                  leading: Icon(
+                    Icons.help,
+                    color: Colors.green,
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+
+        body: Column(
+          children: <Widget>[
+            //image corasel begins here
+          //  image_carousel,
+            Padding(
+              padding: const EdgeInsets.all(4.0),
+              child: Container(
+                alignment: Alignment.centerLeft,
+                child: Text('Catogories')),
+            ),
+            //horizontal list view begins here
+            HorizontalList(),
+          ],
+        ),
 
 
-
-    InkWell(
-    onTap: (){},
-    child:ListTile(
-    title: Text('Home page'),
-    leading:Icon(Icons.home),
-    ),
-    )
-
-
-    InkWell(
-    onTap: (){},
-    child:ListTile(
-    title: Text('My account'),
-    leading:Icon(Icons.person),
-    ),
-    )
-
-    InkWell(
-    onTap: (){},
-    child:ListTile(
-    title: Text('my orders'),
-    leading:Icon(Icons.shopping_basket),
-    ),
-    )
-
-    InkWell(
-    onTap: (){},
-    child:ListTile(
-    title: Text('categories'),
-    leading:Icon(Icons.dashboard),
-    ),
-    )
-
-    InkWell(
-    onTap: (){},
-    child:ListTile(
-    title: Text('favourites'),
-    leading:Icon(Icons.favorite),
-    ),
-    )
-
-    Divider(),
-    InkWell(
-    onTap: (){},
-    child:ListTile(
-    title: Text('settings'),
-    leading:Icon(Icons.settings,color:Colors.blue),
-    ),
-    )
-
-    InkWell(
-    onTap: (){},
-    child:ListTile(
-    title: Text('About'),
-    leading:Icon(Icons.help, color: Colors.green,),
-    ),
-    )
-
-    ]
-    )
-    )
-
-    body:new Column(
-    children:<Widget>[
-    new padding(padding:const EdgeInsets.all(4.0),
-    child:Container(
-    alignment:Alignment.centerLeft,
-    child:new Text('categories')),
-    ),
-    HorizontalList(),
-
-    new padding(padding:const EdgeInsets.all(8.0),
-    child:Container(
-    alignment:Alignment.centerLeft,
-    child:new Text('recent products')),
-    ),
-    Flexible(child:products()),
-
-    ),
-    ]
-    )
-    )
+    );
   }
 }
