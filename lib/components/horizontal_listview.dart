@@ -8,13 +8,13 @@ class HorizontalList extends StatelessWidget {
         child: ListView(
           scrollDirection: Axis.horizontal,
           children: <Widget>[
-            Catogory(),
-            Catogory(),
-            Catogory(),
-            Catogory(),
-            Catogory(),
-            Catogory(),
-            Catogory(),
+            Catogory('',''),
+            Catogory('',''),
+            Catogory('',''),
+            Catogory('',''),
+            Catogory('',''),
+            Catogory('',''),
+            Catogory('',''),
           ],
         ));
   }

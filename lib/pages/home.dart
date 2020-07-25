@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import'package:carousel_pro/carousel_pro.dart';
 import 'package:register/components/horizontal_listview.dart';
+import 'package:register/pages/cart.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -34,7 +35,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
           elevation: 0.0,
-          title: Text('ShopApp'),
+          title: Text('BOOK SHOP'),
           backgroundColor: Colors.red,
           actions: <Widget>[
             IconButton(

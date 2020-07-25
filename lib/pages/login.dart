@@ -9,12 +9,12 @@ import 'package:google_sign_in/google_sign_in.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
     import 'home.dart';
 
-class Login extends StatefulWidget {
+class LoginPage extends StatefulWidget {
   @override
-  _LoginState CreateState() => _LoginState();
+  _LoginPageState CreateState() => _LoginPageState();
 }
 
-  class _LoginState extends State<Login>{
+  class _LoginPageState extends State<LoginPage>{
   final GoogleSignIn googleSignIn=  new GoogleSignIn();
   final FirebaseAuth firebaseAuth= FirebaseAuth.instance;
   final _formKey = GlobalKey<FormState>();
@@ -38,7 +38,7 @@ loading= true;
 preferences=await SharedPreferences.getInstance();
 isLogedin= await googleSignIn.isSignedIn();
 if(isLogedin){
-  Navigator.pushReplacement(context,MaterialPageRoute(builder:(context) => Homepage()));
+  Navigator.pushReplacement(context,MaterialPageRoute(builder:(context) => HomePage()));
 }
 setState(() {
   loading= false;
