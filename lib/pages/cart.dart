@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:register/components/cart_product.dart';
+import '../packages/CartProducts.dart';
 
 class Cart extends StatefulWidget {
   @override
@@ -11,37 +11,35 @@ class _CartState extends State<Cart> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        elevation: 0.0,
-        title: Text('Shopping Cart'),
+      appBar: new AppBar(
         backgroundColor: Colors.red,
-        actions: <Widget>[
-          IconButton(
-              icon: Icon(Icons.search), color: Colors.white, onPressed: () {}),
-        ],
+        title: Text('Cart'),
+      actions: <Widget>[
+       
+        new IconButton(icon: Icon(Icons.search,color: Colors.white) , onPressed: null, ),
+       
+      ],
       ),
 
-      body: Cart_products(),
-      
+    body: new CartProducts(),
+
       bottomNavigationBar: Container(
         color: Colors.white,
         child: Row(
           children: <Widget>[
             Expanded(
               child: ListTile(
-                title: Text("Total:"), //these are camming from data base, now this is an example
-                subtitle: Text("\$230"),
+                title: new Text("Total:"),
+                subtitle: new Text("\$235"),
               ),
             ),
             Expanded(
-                child: MaterialButton(
-              onPressed: () {},
-              child: Text(
-                "Check out",
-                style: TextStyle(color: Colors.white),
-              ),
+              child: new MaterialButton(onPressed: (){},
+              child: new Text("Cheack Out", style: TextStyle(color: Colors.white)),
               color: Colors.red,
-            ))
+              ),
+              
+            ),
           ],
         ),
       ),

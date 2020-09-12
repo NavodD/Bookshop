@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
-import'package:carousel_pro/carousel_pro.dart';
-import 'package:register/components/horizontal_listview.dart';
-import 'package:register/pages/cart.dart';
+
+import 'package:carousel_pro/carousel_pro.dart';
+
+import '../packages/horizontal_listView.dart';
+import '../packages/procuts.dart';
+import '../pages/Cart.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -11,165 +14,115 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-
-    Widget image_carousel = new Container(
-      height: 200.0,
-      child: Carousel(
-        boxFit: BoxFit.cover,
-        images: [
-          AssetImage(''),
-          AssetImage(''),
-          AssetImage(''),
-          AssetImage(''),
-          AssetImage(''),
-          AssetImage(''),
-        ],
-        autoplay: false,
-      //  animationCurve: Curves.fastOutSlowIn,
-        //animationDuration: Duration(milliseconds: 1000),
-        dotSize: 4.0,
-        indicatorBgPadding: 2.0,
-        dotBgColor: Colors.transparent,
-      ),
-    );
+  Widget imageCerousel = new Container(
+    height: 250.0,
+    child: Carousel(
+      boxFit: BoxFit.cover,
+      images: [
+        AssetImage('images/1.jpg'),
+        AssetImage('images/2.jpg'),
+        AssetImage('images/3.jpg'),
+      ],
+      autoplay: true,
+      animationCurve: Curves.fastOutSlowIn,
+      animationDuration: Duration(microseconds: 1000),
+      indicatorBgPadding: 2.0,
+    ),
+  );
     return Scaffold(
-      appBar: AppBar(
-          elevation: 0.0,
-          title: Text('BOOK SHOP'),
-          backgroundColor: Colors.red,
-          actions: <Widget>[
-            IconButton(
-                icon: Icon(Icons.search),
-                color: Colors.white,
-                onPressed: () {}),
-            IconButton(
-                icon: Icon(Icons.shopping_cart),
-                color: Colors.white,
-                onPressed: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=>Cart()));
-                }),
-          ],
-        ),
-
-        drawer: Drawer(
-          child: ListView(
-            children: <Widget>[
-              //header
-              UserAccountsDrawerHeader(
-                accountName: Text('Chamaka Athukorala'),
-                accountEmail: Text('chamakamedasa@gmail.com'),
-                currentAccountPicture: GestureDetector(
-                  child: CircleAvatar(
-                    backgroundColor: Colors.grey,
-                    child: Icon(
-                      Icons.person,
-                      color: Colors.white,
-                    ),
-                  ),
-                ),
-                decoration: BoxDecoration(color: Colors.red),
-              ),
-              //body
-              InkWell(
-                onTap: () {},
-                child: ListTile(
-                  title: Text('Home Page'),
-                  leading: Icon(
-                    Icons.home,
-                    color: Colors.red,
-                  ),
-                ),
-              ),
-
-              InkWell(
-                onTap: () {},
-                child: ListTile(
-                  title: Text('My Account'),
-                  leading: Icon(
-                    Icons.person,
-                    color: Colors.red,
-                  ),
-                ),
-              ),
-
-              InkWell(
-                onTap: () {},
-                child: ListTile(
-                  title: Text('My Orders'),
-                  leading: Icon(
-                    Icons.shopping_basket,
-                    color: Colors.red,
-                  ),
-                ),
-              ),
-
-              InkWell(
-                onTap: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=>Cart()));
-                },
-                child: ListTile(
-                  title: Text('Shopping Cart'),
-                  leading: Icon(
-                    Icons.shopping_cart,
-                    color: Colors.red,
-                  ),
-                ),
-              ),
-
-              InkWell(
-                onTap: () {},
-                child: ListTile(
-                  title: Text('Favorites'),
-                  leading: Icon(
-                    Icons.favorite,
-                    color: Colors.red,
-                  ),
-                ),
-              ),
-              Divider(
-                color: Colors.grey,
-              ),
-              InkWell(
-                onTap: () {},
-                child: ListTile(
-                  title: Text('Settings'),
-                  leading: Icon(
-                    Icons.settings,
-                    color: Colors.blue,
-                  ),
-                ),
-              ),
-
-              InkWell(
-                onTap: () {},
-                child: ListTile(
-                  title: Text('About'),
-                  leading: Icon(
-                    Icons.help,
-                    color: Colors.green,
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ),
-
-        body: Column(
+      appBar: new AppBar(
+        backgroundColor: Colors.red,
+        title: Text('Nadeesha  Stationary'),
+      actions: <Widget>[
+        new IconButton(icon: Icon(Icons.search,color: Colors.white) , onPressed: null, ),
+        new IconButton(icon: Icon(Icons.shopping_cart,color: Colors.white) , onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context)=>new Cart()));}, ),
+        
+      ],
+      ),
+      drawer: new Drawer(
+        child: new ListView(
           children: <Widget>[
-            //image corasel begins here
-          //  image_carousel,
-            Padding(
-              padding: const EdgeInsets.all(4.0),
-              child: Container(
-                alignment: Alignment.centerLeft,
-                child: Text('Catogories')),
+            UserAccountsDrawerHeader(accountName: Text("Navod") ,accountEmail: Text("Navoddinidu@gmail.com"),
+            currentAccountPicture: GestureDetector(child: new CircleAvatar(backgroundColor: Colors.amber,child: Icon(Icons.person),)
+            
             ),
-            //horizontal list view begins here
-            HorizontalList(),
+            decoration: new BoxDecoration(color:Colors.red),
+            ),
+            //body
+            InkWell(
+                          onTap: (){},
+                          child: ListTile(
+                title: Text('Home Page',style: TextStyle(color: Colors.black),),
+                leading: Icon(Icons.home, color: Colors.black,),
+              ),
+            ),
+             InkWell(
+                          onTap: (){},
+                          child: ListTile(
+                title: Text('My Account',style: TextStyle(color: Colors.black),),
+                leading: Icon(Icons.person, color: Colors.black,),
+              ),
+            ),
+             InkWell(
+                          onTap: (){},
+                          child: ListTile(
+                title: Text('My Orders',style: TextStyle(color: Colors.black),),
+                leading: Icon(Icons.shopping_basket, color: Colors.black,),
+              ),
+            ),
+             InkWell(
+                          onTap: (){},
+                          child: ListTile(
+                title: Text('Categories',style: TextStyle(color: Colors.black),),
+                leading: Icon(Icons.dashboard, color: Colors.black,),
+              ),
+            ),
+             InkWell(
+                          onTap: (){},
+                          child: ListTile(
+                title: Text('Favourite',style: TextStyle(color: Colors.black),),
+                leading: Icon(Icons.favorite, color: Colors.black,),
+              ),
+            ),
+            Divider( color: Colors.white,),
+             InkWell(
+                          onTap: (){},
+                          child: ListTile(
+                title: Text('Settings',style: TextStyle(color: Colors.black),),
+                leading: Icon(Icons.settings, color: Colors.black,),
+              ),
+            ),
+             InkWell(
+                          onTap: (){},
+                          child: ListTile(
+                title: Text('About',style: TextStyle(color: Colors.black),),
+                leading: Icon(Icons.help, color: Colors.black,),
+              ),
+            ),
           ],
         ),
+        
+      ),
+      body: new Column(
+        children: <Widget>[
+          imageCerousel,
+          new Padding(padding: const EdgeInsets.all(8.0),
+            child:Text("catagory" ,)
+          ),
+        Horizontallist(),
+        
+        new Padding(padding: const EdgeInsets.all(10.0),),
+        Text('Recent Projects'),
 
-
+        Flexible(
+          child: Products(),
+        )
+        ], 
+        
+      ),
+       
     );
+    
   }
 }
+ 
